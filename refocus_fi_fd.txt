@@ -1,0 +1,15 @@
+AWS.aws-stage1-useast2.coret1|JARVIS_RECIPES_STORAGE_MANAGER_AVAILABILITY - OK
+AWS.aws-stage1-useast2.coret1|JARVIS_STATUS_REPORTER_AVAILABILITY - OK
+AWS.aws-stage1-useast2.coret1|PUBLICPROXY_LOAD - Timeout
+AWS.aws-stage1-useast2.coret1|CloudDNS_AVAILABILITY - Timeout
+Falcon_Global.Global|STARGATE_CONTAINER_AVAILABILITY - Timeout
+Falcon_Global.Global|OSRB_BASEIMAGE_AVAILABILITY - Timeout
+Falcon_Global.Global|SPINNAKER_AVAILABILITY - Timeout
+Falcon_Global.Global|PCSK_AVAILABILITY - Timeout
+AWS.aws-stage1-useast2.core1|CLUSTERMANAGEMENT_AVAILABILITY - OK
+AWS.aws-stage1-useast2.core1|CIACCDISC_AVAILABILITY - OK
+AWS.aws-stage1-useast2.core1|INBOUND_MTA_AVAILABILITY - OK
+AWS.aws-stage1-useast2.core1|PBSGeo_AVAILABILITY - OK
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2|SDB_MASTER_AVAILABILITY - OK
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2|SDB_MASTER_FAILOVERS - OK
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2|SDB_POD_AVAILABILITY - OK
