@@ -5,6 +5,10 @@
 #import config for __name__
 import config
 import smtplib, ssl
+import csv
+
+# data contains whole details of oncalling
+totalData = []
 
 # parse each data
 def parseEach (original, role) :
@@ -34,6 +38,19 @@ def parseEach (original, role) :
             print ("start time: ", duration['start'])
             print ("end time: ", duration['end'])
 
+            # store into the totalData
+            temp_data = {}
+            if role == 'Primary Oncall Engineer Belowoncall Primary' :
+                temp_data['ShiftStart'] = duration['start']
+                temp_data['EndTime'] = duration['end']
+                temp_data['Primary'] = item
+                totalData.append(temp_data)
+            else :
+                for index, calllog in enumerate(totalData) :
+                    if calllog['ShiftStart'] == duration['start'] and calllog['EndTime'] == duration['end']:
+                        totalData[index]['Secondary'] = item
+
+
         temp_list['duration'] = parsed_data[item]
         data_dict.append(temp_list)
     print("\n")
@@ -61,6 +78,24 @@ def send_Email (data) :
         server.sendmail(sender_email, receiver_email, message)
     return True
 
+
+## Shift Start | End time. | Primary | Secondary
+## Writing onto csv file
+def write_CSV () :
+    # field names  
+    fields = ['ShiftStart', 'EndTime', 'Primary', 'Secondary']
+    # name of csv file  
+    filename = "CallingLog.csv"
+        
+    # writing to csv file  
+    with open(filename, 'w') as csvfile:  
+        # creating a csv dict writer object  
+        writer = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n', fieldnames = fields)  
+        # writing headers (field names)  
+        writer.writeheader()  
+        # writing data rows  
+        writer.writerows(totalData)
+
 # Run
 if __name__ == '__main__':
 
@@ -82,7 +117,9 @@ if __name__ == '__main__':
 
     length = len("Secondary Oncall Details below:")
     secondary_string = string[length + split_index + 1 : -1]
-    #print (secondary_string)
-    output += parseEach(primary_string,"Secondary Oncall Engineer Belowoncall Secondary")
 
-    send_Email(output)
+    output += parseEach(secondary_string,"Secondary Oncall Engineer Belowoncall Secondary")
+
+    print (totalData)
+    # send_Email(output)
+    write_CSV()

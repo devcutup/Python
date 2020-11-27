@@ -1,0 +1,1 @@
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2 :: RECOVERY

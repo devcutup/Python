@@ -26,9 +26,9 @@ def check_to_write(service_Detail) :
             flag = True
     return flag
 
-def write_file(service_Detail) :
+def write_file(service_Detail, filename) :
     if check_to_write(service_Detail) == True :
-        with open('service_log.txt', 'a') as file_handler :
+        with open(filename, 'w') as file_handler :
             file_handler.write(service_Detail['service_name'] + " :: " + service_Detail['status'] + "\n")
 
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
         if k in errors:
             continue
         service_Detail = {"service_name" : k, "status": "RECOVERY"}
-        write_file(service_Detail)
+        write_file(service_Detail, "recovery.txt")
         print('\nFI_FD: "{}" is Recovery\nThe Services Status:'.format(k))
         for i in v:
             print(i)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
         if k in oks:
             continue
         service_Detail = {"service_name" : k, "status": "DOWN"}
-        write_file(service_Detail)
+        write_file(service_Detail, "services_down.txt")
         print('\nFI_FD: "{}" is down\nThe Services Status:'.format(k))
         for i in v:
             print(i)

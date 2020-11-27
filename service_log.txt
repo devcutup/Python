@@ -1,5 +1,10 @@
-AWS.aws-stage1-useast2.core1 :: RECOVERY
-Falcon_Global.Global :: DOWN
-AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2 :: RECOVERY
-Falcon_Global.Global :: RECOVERY
-Falcon_Global.Global :: DOWN
+Falcon_Global.Global|OSRB_BASEIMAGE_AVAILABILITY - Timeout
+Falcon_Global.Global|SPINNAKER_AVAILABILITY - Timeout
+Falcon_Global.Global|PCSK_AVAILABILITY - Timeout
+AWS.aws-stage1-useast2.core1|CLUSTERMANAGEMENT_AVAILABILITY - OK
+AWS.aws-stage1-useast2.core1|CIACCDISC_AVAILABILITY - OK
+AWS.aws-stage1-useast2.core1|INBOUND_MTA_AVAILABILITY - OK
+AWS.aws-stage1-useast2.core1|PBSGeo_AVAILABILITY - OK
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2|SDB_MASTER_AVAILABILITY - OK
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2|SDB_MASTER_FAILOVERS - Critical
+AWS.aws-stage1-useast2.coretip1.sdb-services-prod.sts2|SDB_POD_AVAILABILITY - OK
